@@ -22,7 +22,7 @@ Each day I will add an additional algorithm problem and solution to this repo. *
 
 **T: Test** Walk through your wonderful examples from Step "E" of REACTO. Maybe your code works for regular inputs but not edge cases. Act as a debugger and walk through your code to find any logic issues that may break your code.
 
-**O:** Optimize. Talk about the optimization of your solution. Maybe you made a tradeoff on time and space. Explain that you understand this choice and why you made it.
+**O: Optimize**. Talk about the optimization of your solution. Maybe you made a tradeoff on time and space. Explain that you understand this choice and why you made it.
 
 ## General Tips for a Smooth Mock Interview
 ### Interviewees (people solving the algorithm)
