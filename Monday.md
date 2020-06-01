@@ -32,7 +32,7 @@ Some micro optimizations:
 **Space Complexity:**  O(1). No auxiliary data structures are created.
 
 ```javascript
-function pairSum1(arr, target) {
+function pairSum(arr, target) {
   for (let i = 0; i < arr.length; i++) {
     for (let j = i+1; j < arr.length; j++) {
       if (arr[j] + arr[i] === target) return true;
@@ -41,6 +41,7 @@ function pairSum1(arr, target) {
   return false;
 }
 ```
+
 
 ### Solution 2: Binary Search (Partially Optimized)
 **Strategy:** Iterate through the array. At each element, calulate the partner number that must be in the array for the two to sum to the target. Use a binary search to look through the array for that partner number.
@@ -82,7 +83,30 @@ function binarySearch(arr, i, partner) {
 }
 ```
 
-### Solution 3: Pointers (Optimized)
+### Solution 3: Memoization (Partially Optimized)
+**Strategy:** Iterate through the array. At each number, check if the partner number is present in the hash table. If not, add the number itself to the hash table and continue iterating.
+
+**Time Complexity:** O(n). We only have to traverse the input array once to find a potential pair.
+
+**Space Complexity:** O(n). We will have up to n elements in the hash table.
+
+```javascript
+function pairSum(arr, target) {
+  const hash = {};
+
+  for (let i=0; i<arr.length; i++) {
+    //Check for partner in the hash table
+    let partner = target - arr[i];
+    if (hash[partner]) return true;
+
+    //Add current number to the hash table
+    hash[arr[i]] = true;
+  }
+  return false;
+}
+```
+
+### Solution 4: Pointers (Optimized)
 **Strategy:** Use pointers that start pointing to the first and last element of the array. Calculate the total. If the target is lower than the current sum, we know that the rightmost number will not be a part of the potential pair of numbers that add to the target. So we can incremenet that pointer to the left. Similarly, we know that if the target is greater than the sum, we can increment the left pointer to the right. We will iterate through the array in this way until the pointers meet.
 
 **Time Complexity:** O(n). We traverse each element in the array only once as the pointers increment towards each other.
