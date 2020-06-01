@@ -35,7 +35,7 @@ fib(64) // returns 6557470319842
 
 **Visualizing Recursive Calls for Fibonacci**
 ```
-       Solution 1: No Hash Table                       Solution 2: Using a Hash Table
+        Solution 1: No Memoization                   Solution 2: With Memoization
 
                  fib(n)                                          fib(n)
                /        \                                      /        \
@@ -49,7 +49,7 @@ fib(64) // returns 6557470319842
 
 ## Solutions
 
-### Solution 1: Recursion with No Hash Table (Unoptimized)
+### Solution 1: Recursion without Memoization (Unoptimized)
 
 **Strategy:** Use recursive calls to calculate the fibonacci number, using the fact that the fib term for any given number n is `fib(n-1) + fib(n-2)`.
 
@@ -67,8 +67,8 @@ function fib(num) {
 }
 ```
 
-### Solution 2: Recursion with a Hash Table (Partially Optimized)
-**Strategy:** Use recursive calls to calulate the fibonacci number, adding each calulation to a hash table before returning.
+### Solution 2: Recursion with Memoization (Partially Optimized)
+**Strategy:** Use recursive calls to calulate the fibonacci number, using memoization (i.e. add to a hash table) to store the result before returning.
 
 **Time Complexity:** O(n). Using a hash table lets us eliminate one whole branch of calculations at every recursive call (see the diagram above). Now, we only make n function calls overall.
 
