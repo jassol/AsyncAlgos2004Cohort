@@ -43,9 +43,9 @@ isPalindrome({val: 2, next: {val: 7, next: {val: 5, next: null}}})    //returns 
 
 ### Solution 1: Arrays of Values (Optimized)
 
-**Strategy:**
+**Strategy:** We iterate through the list and populate an array with the node values. Then we iterate through the array to determine if it is a palindrome. The simplest way to check the array for a palindrome is probably with some version of pointers as shown below.
 
-**Time Complexity:** O(n). We iterate through the list once to populate the array of node values. Then we iterate through it again (at least halfway) to check that each element has a palindromic partner. Because these traversals of `n` nodes are in sequence, it is still `n` time overall.
+**Time Complexity:** O(n). We iterate through the list once to populate the array of node values. Then we iterate through the array to check that each element has a palindromic partner. Because these traversals of `n` nodes are in sequence, it is still `n` time overall.
 
 **Space Complexity:** O(n). We create an array to hold the values of each node in the linked list.
 
@@ -73,7 +73,6 @@ function isPalindrome(node) {
   return true;
 }
 ```
-
 
 ### Solution 2: Tortoise / Hare Pointers and a Stack (Optimized and Stylish)
 
@@ -131,8 +130,8 @@ tortoise       ^
 hare                 ^
 
          1  2  3  4  3  2  1        stack: [1, 2, 3]
-tortoise          ^
-hare                       ^        end of linked list detected by the hare; we stop adding to the stack & skip current tortoise node
+tortoise          ^                 we stop adding to the stack & skip current tortoise node...
+hare                       ^        ... because the end of linked list is detected by the hare
 
          1  2  3  4  3  2  1        stack: [1, 2]
 tortoise             ^              current node matches last node in stack so pop it off
