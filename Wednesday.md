@@ -31,7 +31,7 @@ isPalindrome({val: 2, next: {val: 7, next: {val: 5, next: null}}})    //returns 
 
 - If the interviewee puts all the linked list values in an array, note that there are many approaches to test if those array values are a palindrome. Any solution that keeps overall runtime at O(n) is fine.
 
-- If your interviewee comes up with a solution that is n time but requires looking at each node value more than once, give them a *~bonus challenge~* to write a solution that only looks at each node once (Solution 2)
+- If your interviewee comes up with a solution that is n time but requires looking at each node value more than once, give them a *bonus challenge* to write a solution that only looks at each node once (Solution 2)
   - Are there any data structures we've learned that could help solve this problem in one pass? Say... a stack?
   - Is there additional info about this linked list that would make this approach easier? Like, the midpoint? How can you find the midpoint of a linked list?
 
@@ -76,9 +76,9 @@ function isPalindrome(node) {
 
 ### Solution 2: Tortoise / Hare Pointers and a Stack (Optimized and Stylish)
 
-**Strategy:** Use tortoise and hare pointers to iterate through half of the linked list. The tortoise pointer moves 1 node at a time and adds these nodes to a stack. The hare pointer moves 2 nodes at a time, and serves as an indicator for when the tortoise pointer has iterated through half the list. Once we reach halfway, we will continue iterating the tortoise pointer- but inestead of adding nodes to the stack, we pop off of the stack if there is a match. We know the list is a palindrome if we reach the end of the linked list successfully.
+**Strategy:** Use tortoise and hare pointers to iterate through half of the linked list. The tortoise pointer moves 1 node at a time and adds these nodes to a stack. The hare pointer moves 2 nodes at a time, and serves as an indicator for when the tortoise pointer has iterated through half the list. Once we reach halfway, we will continue iterating the tortoise pointer- but instead of adding nodes to the stack, we now pop off of the stack if there is a match. We know the list is a palindrome if we reach the end of the linked list successfully.
 
-**Time Complexity:** O(n). We only traverse the linked list one time. This is where the style points come in-- we only have to look at each node one time. So even though this has the same time complexity as Solution 1, you will probably impress your interviewer.
+**Time Complexity:** O(n). We only traverse the linked list one time. This is where the style points come in-- we only have to look at each node once. So even though this has the same time complexity as Solution 1, you will probably impress your interviewer.
 
 **Space Complexity:** O(n). We create a stack that holds the first half of the linked list values. Although this may seem like n/2, remember that for Big O calculations you drop any coefficients. So space taken is O(n).
 
