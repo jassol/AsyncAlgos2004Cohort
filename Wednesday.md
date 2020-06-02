@@ -100,7 +100,8 @@ function isPalindrome(node) {
   }
 
   // If hare is falsey, it points to null and the list is even. No action necessary.
-  // If hare is truthy, it points to the last node and the list is odd. So we can skip the middle tortoise node.
+  // If hare is truthy, it points to the last node and the list is odd so we can
+  // skip the middle tortoise node.
   if (hare) tortoise = tortoise.next;
 
   // Iterate through the 2nd half of the list, popping nodes off the stack
@@ -115,7 +116,7 @@ function isPalindrome(node) {
 }
 ```
 
-**Having a hard time visualizing? Here's a visual.**
+**Here's a visual**
 ```
          1  2  3  4  3  2  1        stack: [1]
 tortoise ^
