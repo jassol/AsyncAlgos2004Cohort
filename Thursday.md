@@ -72,15 +72,15 @@ Output: [14, 15, 9, 19]
 ```javascript
 function branchSums(node, sums = [], runningTotal = 0) {
 
-  // Process the node: add its value to our running total for this branch
+    // Process the node: add its value to our running total for this branch
 	runningTotal = runningTotal + node.value;
 
 	// Base Case: we are at a leaf node (both children are null)
-  // Our branch sum is complete so we can add it to our return array
+    // Our branch sum is complete so we can add it to our return array
 	if (!node.right && !node.left) sums.push(runningTotal);
 
 	// Recursive Case: we are at node that has one or more children
-  // Call the function on the child nodes with the new runningTotal
+    // Call the function on the child nodes with the new runningTotal
 	else {
 		if (node.left) branchSums(node.left, sums, runningTotal);
 		if (node.right) branchSums(node.right, sums, runningTotal);
